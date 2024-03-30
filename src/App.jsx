@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Spinner } from 'react-bootstrap'
 import { authenticateThunk } from './auth/authSlice'
 import CheckConnection from './users/components/Connection/CheckConnection'
+import './App.css'
 
 const App = () => {
 
@@ -24,11 +25,11 @@ const App = () => {
 
    
     return (
-        <>
+        <div className='app'>
             <CheckConnection />
             <RouterProvider router={router} />
             <Notification />
-        </>
+        </div>
     )
 }
 

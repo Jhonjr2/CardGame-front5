@@ -36,10 +36,10 @@ const Login = () => {
 
   return (
     <div className='login_container'>
-      <h1>Login</h1>
+      <h1>Login in with username or email</h1>
       <Form onSubmit={handleSubmit(submit)}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email address</Form.Label>
+        <Form.Group className="mb-3 group" controlId="email">
+          <Form.Label className="mb-0"><h3 className='title_input'>Email</h3></Form.Label>
           <Form.Control
             className='login_email'
             type="email"
@@ -47,12 +47,10 @@ const Login = () => {
             {...register("email")}
           />
           <hr />
-          <Form.Text className="text-muted">
-          </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-5" controlId="passworrd">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-5 group" controlId="passworrd">
+          <Form.Label className="mb-0"><h3 className='title_input'>Password</h3></Form.Label>
           <Form.Control
             className='login_password'
             type="password"

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('./fonts/AlegreyaSans-Regular.ttf');
+}
+
+.app {
+    font-family: 'Alegreya Sans';
+}

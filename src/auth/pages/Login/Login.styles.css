@@ -7,13 +7,34 @@
 
 .login_container h1 {
   color: white;
-  padding-bottom: 20px;
+  padding-bottom: 24px;
+  font-size: 16px;
+  text-transform: none;
+  font-weight: 500;
+  Line-height:19.2px;
 }
+
+.group{
+  padding-bottom: 12px;
+  Line-height:19.2px;
+
+}
+
+.title_input {
+  font-size: 12px;
+  color: #FFFFFF;
+  text-transform: none;
+  font-weight: 700;
+  Line-height:19.2px;
+
+} 
 
 .login_email,
 .login_password {
   background-color: transparent;
   padding: 9px 0;
+  color: rgba(255, 255, 255, 0.88);
+  Line-height:19.2px;
 
 }
 
@@ -22,12 +43,15 @@
 .login_password:focus,
 .login_password:active  {
   background-color: transparent;
+  color: #FFFFFF;
 }
 
 .login_password::placeholder,
 .login_email::placeholder {
   color: #ffffff83;
+  font-size: 16px;
 }
+
 
 .d-inline-block {
   color: rgba(255, 255, 255, 0.577);
@@ -40,6 +64,7 @@ hr {
 }
 
 .btn_form {
+  padding: 10px;
   border-radius: 20px;
   background: linear-gradient(to left, #1917b7 30%, #191d3bba);
 }

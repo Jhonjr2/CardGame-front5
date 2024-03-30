@@ -8,7 +8,7 @@ const UsersLayout = () => {
     <div>
       <NavBar />
 
-      <Container className="py-5" >
+      <Container className="py-0" >
           <Outlet />
       </Container>
     </div>
