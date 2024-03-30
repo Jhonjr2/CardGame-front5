@@ -19,7 +19,7 @@ axios.interceptors.response.use((res) => {
     if(error.response?.status === 401) throw error;
     store.dispatch(showNotification({
         variant: "danger",
-        message: "There was an error"
+        message: "there is no Internet conection"
     }))
     console.log(error);
     throw error;

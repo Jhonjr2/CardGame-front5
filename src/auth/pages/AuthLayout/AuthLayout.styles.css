@@ -1,3 +1,16 @@
+/* .auth-container {
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+.outlet-container {
+    display: none;
+}
+
+
+.image-gallery-image {
+    width: 1300px; 
+  } */
 
 .auth-container {
     display: flex;
@@ -16,7 +29,3 @@
     padding: 50px 20px;
     height: 100%;
 }
-
-
-/* 3  ->  12 */
-/* x  ->  100 */

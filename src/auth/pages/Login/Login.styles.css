@@ -1,0 +1,58 @@
+.login_container {
+  background: linear-gradient(to bottom, #eb1919, #000000f8);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+}
+
+.login_container h1 {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.login_email,
+.login_password {
+  background-color: transparent;
+  padding: 9px 0;
+
+}
+
+.login_email:focus,
+.login_email:active,
+.login_password:focus,
+.login_password:active  {
+  background-color: transparent;
+}
+
+.login_password::placeholder,
+.login_email::placeholder {
+  color: #ffffff83;
+}
+
+.d-inline-block {
+  color: rgba(255, 255, 255, 0.577);
+}
+
+hr {
+  height: 2px;
+  margin-top: -10px;
+  background-color: white;
+}
+
+.btn_form {
+  border-radius: 20px;
+  background: linear-gradient(to left, #1917b7 30%, #191d3bba);
+}
+
+.sign {
+  margin-right: 15%;
+}
+
+.sign h8 {
+  color: rgb(52, 106, 252);
+}
+
+
+.sign {
+  color: #2656d0;
+}

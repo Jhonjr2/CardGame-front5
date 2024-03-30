@@ -1,0 +1,19 @@
+.container_connection {
+    position: fixed;
+    bottom:0;
+    left: 30%;
+    background-color: rgb(234, 116, 32);
+    padding: 20px 20px;
+    border-radius:20px 20px 0 0;
+    z-index: 10;
+}
+
+.title1_connection {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgb(78, 29, 29);
+}
+
+.title2_connection {
+    color: rgb(53, 21, 21);
+}

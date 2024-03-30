@@ -6,11 +6,12 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showNotification } from '../../../shared/Notification/notificationSlice';
 import { setAuth, setToken } from '../../authSlice';
+import './Login.styles.css'
 
 const Login = () => {
 
   const { handleSubmit, register } = useForm();
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Login = () => {
       }));
       navigate('/users/all_users');
     } catch (error) {
-      if(error.response.status === 401) {
+      if (error.response.status === 401) {
         dispatch(showNotification({
           variant: "danger",
           message: "Invalid credentials",
@@ -34,45 +35,48 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className='login_container'>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit(submit)}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email address</Form.Label>
-          <Form.Control 
-            type="email" 
-            placeholder="Enter email"
+          <Form.Control
+            className='login_email'
+            type="email"
+            placeholder="example@gmail.com"
             {...register("email")}
           />
+          <hr />
           <Form.Text className="text-muted">
-            We&apos;ll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-5" controlId="passworrd">
           <Form.Label>Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Password" 
+          <Form.Control
+            className='login_password'
+            type="password"
+            placeholder="**********"
             {...register("password")}
           />
+          <hr />
           <Link to="/auth/reset_password" className='d-inline-block mt-1'>
             Forgot your password?
           </Link>
         </Form.Group>
-        <Button 
-          variant="primary" 
-          type="submit" 
-          className='w-100'
+        <Button
+          variant="primary"
+          type="submit"
+          className='w-100 btn_form'
           disabled={isLoading}
         >
           {isLoading ? <Spinner /> : 'Submit'}
         </Button>
       </Form>
-      
-      <p className='mt-4'>
+
+      <p className='mt-4 '>
         Don&apos;t have an account? {" "}
-        <Link to="/auth/signup">Sign up</Link>
+        <Link to="/auth/signup"><h8 className='sign'>Sign up</h8></Link>
       </p>
     </div>
   )

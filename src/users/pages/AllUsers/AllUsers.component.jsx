@@ -16,23 +16,6 @@ const AllUsers = () => {
     <div>
 
       <LoggedUserCard />
-
-      <h3 className="mt-5">Other users</h3>
-      <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-4">
-        {users.map((user) => (
-          <Col key={user.id}>
-            <Card>
-              <Card.Img variant="top" src={user.image} style={{ objectFit: "cover" }} />
-              <Card.Body>
-                <Card.Title>{user.firstName} {user.lastName}</Card.Title>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>{user.country}</ListGroup.Item>
-                </ListGroup>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
     </div>
   )
 }

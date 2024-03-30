@@ -6,21 +6,26 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Spinner } from 'react-bootstrap'
 import { authenticateThunk } from './auth/authSlice'
+import CheckConnection from './users/components/Connection/CheckConnection'
 
 const App = () => {
 
     const dispatch = useDispatch();
     const { authStatus } = useSelector(state => state.auth);
 
+
     useEffect(() => {
         dispatch(authenticateThunk());
-    }, [ dispatch ]);
+    }, [dispatch]);
 
-    if(authStatus === 'pending'){
+    if (authStatus === 'pending') {
         return <Spinner />
     }
+
+   
     return (
         <>
+            <CheckConnection />
             <RouterProvider router={router} />
             <Notification />
         </>
