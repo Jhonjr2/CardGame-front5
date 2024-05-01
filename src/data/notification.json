@@ -1,0 +1,18 @@
+[
+    {
+        "datetime": "2024-04-21 15:01:06",
+        "sender_id": "Andres",
+        "receiver_id": "Luisa",
+        "exchange_id": 425677,
+        "status": "true" 
+    },
+    {
+        "datetime": "2024-04-21 15:01:06",
+        "sender_id": "Jhon",
+        "receiver_id": "Pedro",
+        "exchange_id": 425677,
+        "status": "true" 
+    }
+   
+    
+]

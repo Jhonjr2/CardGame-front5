@@ -1,34 +1,30 @@
-
-import { RouterProvider } from 'react-router-dom'
-import router from './router'
-import Notification from './shared/Notification/Notification.component'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Spinner } from 'react-bootstrap'
-import { authenticateThunk } from './auth/authSlice'
 import CheckConnection from './users/components/Connection/CheckConnection'
 import './App.css'
+import Navbar from './users/components/NavBar/NavBar.component'
+import { Route, Routes } from 'react-router-dom'
+import Login from './auth/pages/Login'
+import OfferingCardPage from './users/components/cards/page/OfferingCardPage'
+import SearchCardPage from './users/components/cards/page/SearchCardPage'
+import DetalleExchange from './users/components/cards/page/DetalleExchange'
+import HomePage from './users/components/LoggedUserCard/HomePage'
+import { CardProvider } from './reduxStore/CardContext'
 
 const App = () => {
 
-    const dispatch = useDispatch();
-    const { authStatus } = useSelector(state => state.auth);
-
-
-    useEffect(() => {
-        dispatch(authenticateThunk());
-    }, [dispatch]);
-
-    if (authStatus === 'pending') {
-        return <Spinner />
-    }
-
-   
     return (
         <div className='app'>
-            <CheckConnection />
-            <RouterProvider router={router} />
-            <Notification />
+            <CardProvider>
+                <Navbar />
+                <CheckConnection />
+                <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/offeringCard' element={<OfferingCardPage />} />
+                    <Route path='/searchCard' element={<SearchCardPage />} />
+                    <Route path='/detalleExchange' element={<DetalleExchange />} />
+                    {/* <Route path='/sendExchange' element={<Login/>} /> */}
+                </Routes>
+            </CardProvider>
         </div>
     )
 }

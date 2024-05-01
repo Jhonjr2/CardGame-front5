@@ -1,0 +1,51 @@
+.CardExchange {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 4em;
+    padding-left: 50px;
+}
+
+.info_CardExchange {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+
+.time_CardExchange {
+    font-size: 17px;
+    color: rgba(2, 2, 2, 0.639);
+    text-transform: capitalize;
+}
+
+.text_CardExchange {
+    font-size: 18px;
+    text-transform: capitalize;
+    max-width: 500px;
+}
+
+.habilitado {
+  color: black;
+}
+
+.inhabilitado {
+    color: rgba(61, 66, 70, 0.502);
+}
+
+/* span {
+    color: rgb(79, 31, 31)
+} */
+
+
+.containerCard {
+    width: 50px;
+}
+
+.icon_reactive {
+    width: 100px;
+    transition: transform 2.5s ease;
+}
+
+.icon_reactive:hover {
+    transform: rotate(360deg); 
+}

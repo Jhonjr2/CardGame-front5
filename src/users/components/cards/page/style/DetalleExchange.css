@@ -1,0 +1,17 @@
+.selected_cards {
+    padding: 120px 0 0 50px;
+
+}
+
+.searching_cards {
+    display: flex;
+    gap: 2em;
+    margin-bottom: 60px;
+   
+}
+
+.offering_cards {
+    display: flex;
+    gap: 2em;
+    margin-bottom: 60px;
+}

@@ -1,0 +1,23 @@
+.title_notifications {
+    font-size: 25px;
+    color: black;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.info_notifications {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+    margin-bottom: 40px;
+}
+
+.text_notifications {
+    font-size: 19px;
+    color: black;
+}
+
+.time_notifications {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.765);
+}

@@ -1,0 +1,21 @@
+.offeringCardPage {
+    padding: 100px 0 0 40px;
+}
+
+.btn_back {
+    padding: 10px;
+    border: none;
+    border-radius: 40px;
+    transition: transform .3s ease;
+}
+
+.btn_back:hover {
+    transform:scale(1.2);
+    filter:blur(1.1);
+}
+
+.offeringCardPage .DetalleExchange {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}

@@ -1,0 +1,183 @@
+[
+    {
+      "id": 1,
+      "id_pais": 1,
+      "stars": 3,
+      "nombre_jugador": "Alejandro"
+    },
+    {
+      "id": 2,
+      "id_pais": 1,
+      "stars": 4,
+      "nombre_jugador": "Camila"
+    },
+    {
+      "id": 3,
+      "id_pais": 1,
+      "stars": 2,
+      "nombre_jugador": "Diego"
+    },
+    {
+      "id": 4,
+      "id_pais": 1,
+      "stars": 5,
+      "nombre_jugador": "Luisa"
+    },
+    {
+      "id": 5,
+      "id_pais": 1,
+      "stars": 3,
+      "nombre_jugador": "Isabella"
+    },
+    {
+      "id": 6,
+      "id_pais": 1,
+      "stars": 4,
+      "nombre_jugador": "Mateo"
+    },
+    {
+      "id": 7,
+      "id_pais": 1,
+      "stars": 2,
+      "nombre_jugador": "Valentina"
+    },
+    {
+      "id": 8,
+      "id_pais": 1,
+      "stars": 3,
+      "nombre_jugador": "Santiago"
+    },
+    {
+      "id": 9,
+      "id_pais": 1,
+      "stars": 4,
+      "nombre_jugador": "Juliana"
+    },
+    {
+      "id": 10,
+      "id_pais": 1,
+      "stars": 5,
+      "nombre_jugador": "Juan"
+    },
+    {
+      "id": 11,
+      "id_pais": 2,
+      "stars": 4,
+      "nombre_jugador": "Antoine"
+    },
+    {
+      "id": 12,
+      "id_pais": 2,
+      "stars": 3,
+      "nombre_jugador": "Sophie"
+    },
+    {
+      "id": 13,
+      "id_pais": 2,
+      "stars": 5,
+      "nombre_jugador": "Pierre"
+    },
+    {
+      "id": 14,
+      "id_pais": 2,
+      "stars": 2,
+      "nombre_jugador": "Amélie"
+    },
+    {
+      "id": 15,
+      "id_pais": 2,
+      "stars": 4,
+      "nombre_jugador": "Lucas"
+    },
+    {
+      "id": 16,
+      "id_pais": 2,
+      "stars": 3,
+      "nombre_jugador": "Manon"
+    },
+    {
+      "id": 17,
+      "id_pais": 2,
+      "stars": 5,
+      "nombre_jugador": "Étienne"
+    },
+    {
+      "id": 18,
+      "id_pais": 2,
+      "stars": 2,
+      "nombre_jugador": "Léa"
+    },
+    {
+      "id": 19,
+      "id_pais": 2,
+      "stars": 4,
+      "nombre_jugador": "Théo"
+    },
+    {
+      "id": 20,
+      "id_pais": 2,
+      "stars": 3,
+      "nombre_jugador": "Charlotte"
+    },
+    {
+      "id": 21,
+      "id_pais": 3,
+      "stars": 5,
+      "nombre_jugador": "Mateo"
+    },
+    {
+      "id": 22,
+      "id_pais": 3,
+      "stars": 4,
+      "nombre_jugador": "Sofía"
+    },
+    {
+      "id": 23,
+      "id_pais": 3,
+      "stars": 3,
+      "nombre_jugador": "Mateo"
+    },
+    {
+      "id": 24,
+      "id_pais": 3,
+      "stars": 2,
+      "nombre_jugador": "Valentina"
+    },
+    {
+      "id": 25,
+      "id_pais": 3,
+      "stars": 5,
+      "nombre_jugador": "Juan"
+    },
+    {
+      "id": 26,
+      "id_pais": 3,
+      "stars": 4,
+      "nombre_jugador": "Lucía"
+    },
+    {
+      "id": 27,
+      "id_pais": 3,
+      "stars": 3,
+      "nombre_jugador": "Manuel"
+    },
+    {
+      "id": 28,
+      "id_pais": 3,
+      "stars": 4,
+      "nombre_jugador": "Sofía"
+    },
+    {
+      "id": 29,
+      "id_pais": 3,
+      "stars": 5,
+      "nombre_jugador": "Mateo"
+    },
+    {
+      "id": 30,
+      "id_pais": 3,
+      "stars": 3,
+      "nombre_jugador": "Santiago"
+    }
+  ]
+  

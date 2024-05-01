@@ -1,0 +1,32 @@
+[
+  {
+    "id_usuario_intercambia": "5",
+    "id_pais": "MX",
+    "id_carta": "C001",
+    "datetime": "2024-04-08T12:00:00"
+  },
+  {
+    "id_usuario_intercambia": "4",
+    "id_pais": "US",
+    "id_carta": "C002",
+    "datetime": "2024-04-07T15:30:00"
+  },
+  {
+    "id_usuario_intercambia": "2",
+    "id_pais": "JP",
+    "id_carta": "C003",
+    "datetime": "2024-04-06T09:45:00"
+  },
+  {
+    "id_usuario_intercambia": "3",
+    "id_pais": "CN",
+    "id_carta": "C004",
+    "datetime": "2024-04-05T18:20:00"
+  },
+  {
+    "id_usuario_intercambia": "1",
+    "id_pais": "DE",
+    "id_carta": "C005",
+    "datetime": "2024-04-04T21:10:00"
+  }
+]

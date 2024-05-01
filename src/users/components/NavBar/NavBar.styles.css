@@ -1,4 +1,87 @@
-.NavBar {
-    padding: 20px;
-    background: linear-gradient(to bottom, #9d0303, #000000ea);
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: rgba(39, 15, 15, 0.807);
+  position: fixed;
+  min-width: 100%;
+  z-index: 999;
+  
+}
+
+.header nav {
+  text-decoration: none;
+}
+
+.header_title {
+  font-size: 25px;
+  text-decoration: none;
+  text-shadow: 4px 2px 3px rgba(255, 255, 255, 0.41);
+
+}
+
+.TextColorDifference {
+  color: white;
+}
+
+.header_header_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.header_header_menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.header_menu li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.header_menu li a {
+  text-decoration: none;
+  position: relative;
+  font-size: 16px;
+  font-weight: 510;
+}
+
+.header_menu li a:hover {
+  color: var(--Color-text-secudary);
+
+}
+
+.header_menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; 
+  left: 0;
+  width: 0;
+  height: 2px; 
+  background-color: var(--Color-text-secudary);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.header_menu li a:hover::after,
+.header_menu li a:focus::after,
+.header_menu li a.active::after {
+  width: 100%;
+  background-color: var(--Color-text-secudary); 
+  color: var(--Color-text-secudary);
+}
+
+.header_menu li.active a {
+  color: var(--Color-text-secudary); 
+}
+
+.header_menu li.active a::after {
+  width: 100%;
+  background-color: var(--Color-text-secudary); 
 }

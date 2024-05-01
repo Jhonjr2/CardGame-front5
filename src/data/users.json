@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "pais": "México",
+        "correo": "juan.perez@example.com"
+    },
+    {
+        "id": "2",
+        "nombre": "Maria",
+        "apellido": "García",
+        "pais": "España",
+        "correo": "maria.garcia@example.com"
+    },
+    {
+        "id": "3",
+        "nombre": "Emily",
+        "apellido": "Smith",
+        "pais": "Estados Unidos",
+        "correo": "emily.smith@example.com"
+    },
+    {
+        "id": "4",
+        "nombre": "Luca",
+        "apellido": "Rossi",
+        "pais": "Italia",
+        "correo": "luca.rossi@example.com"
+    },
+    {
+        "id": "5",
+        "nombre": "Sakura",
+        "apellido": "Tanaka",
+        "pais": "Japón",
+        "correo": "sakura.tanaka@example.com"
+    }
+]
