@@ -48,13 +48,13 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <>
       {isOpen && (
-        <div className="modal_overlay" onClick={onClose}>
+        <div className="modal_overlay" >
           {/* <div className="modal_content" ref={modalRef1}>
             <Login onClose={onClose} />
             <p>1</p>
           </div> */}
           <div className="modal_content2" >
-            <Login onClose={onClose} />
+            <Login />
             <p>2</p>
           </div>
           {/* <div className="modal_content3" ref={modalRef3}>

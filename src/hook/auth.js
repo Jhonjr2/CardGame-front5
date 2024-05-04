@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useAuth = () => {
   const baseUrl = 'https://fnlclp5rqe.execute-api.us-east-1.amazonaws.com/dev/users/login';
@@ -19,17 +19,32 @@ const useAuth = () => {
       if (userDataFromLocalStorage) {
         setUserData(userDataFromLocalStorage);
       }
+
+      const timer = setTimeout(checkTokenExpiration, 60000); 
+      return () => clearTimeout(timer);
     }
   }, [isAuthenticated]);
 
+  const checkTokenExpiration = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const { exp } = JSON.parse(atob(token.split('.')[1])); 
+      if (exp * 1000 < Date.now()) {
+        logout();
+      } else {
+        setTimeout(checkTokenExpiration, 10000); 
+      }
+    }
+  };
+
   const login = async (email, password) => {
     try {
-      console.log('URL de solicitud:', baseUrl); // Agrega este registro
+      console.log('URL de solicitud:', baseUrl);
       const options = {
         method: 'POST', 
         url: baseUrl,
         data: { email, password },
-        timeout: 10000 // Establece un tiempo de espera de 10 segundos (10000 milisegundos)
+        timeout: 10000
       };
       
       const response = await axios.request(options);
@@ -51,19 +66,19 @@ const useAuth = () => {
         return true;
       } else {
         if (response.status === 401) {
-          throw new Error('Credenciales inválidas.');
+          logout(); 
+          throw new Error('La sesión ha expirado. Por favor, inicia sesión nuevamente.');
         } else {
           throw new Error(data.body || 'Error desconocido');
         }
       }
     } catch (error) {
-      throw new Error(`Error`);
+      throw new Error(error.message || 'Error desconocido');
     }    
   };
   
   const logout = () => {
     navigate('/');
-    window.location.reload(true);
     setIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('userData');

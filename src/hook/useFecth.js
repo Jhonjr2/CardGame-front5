@@ -46,15 +46,15 @@ const useFetch = () => {
     // const token = localStorage.getItem('token');
 
     useEffect(() => {
-        const fetchDataFromLocalStorage = () => {
-            const summaryData = localStorage.getItem('dataSummary');
-            if (summaryData) {
-                const parsedData = JSON.parse(summaryData);
-                setDataSummary(parsedData);
-            }
-        };
+        // const fetchDataFromLocalStorage = () => {
+        //     const summaryData = localStorage.getItem('dataSummary');
+        //     if (summaryData) {
+        //         const parsedData = JSON.parse(summaryData);
+        //         setDataSummary(parsedData);
+        //     }
+        // };
     
-        fetchDataFromLocalStorage();
+        // fetchDataFromLocalStorage();
     
         const token = localStorage.getItem('token');
         const headers = token ? { token: `${token}` } : {};
