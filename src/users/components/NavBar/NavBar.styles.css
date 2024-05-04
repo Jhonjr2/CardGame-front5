@@ -5,7 +5,7 @@
   background-color: rgba(39, 15, 15, 0.807);
   position: fixed;
   min-width: 100%;
-  z-index: 999;
+  z-index: 889;
   
 }
 
@@ -84,4 +84,10 @@
 .header_menu li.active a::after {
   width: 100%;
   background-color: var(--Color-text-secudary); 
+}
+
+.header_login .btnModal {
+  background-color: transparent;
+  color: white;
+  border: none;
 }

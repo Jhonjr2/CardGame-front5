@@ -2,10 +2,6 @@
   padding: 10px;
 }
 
-.image-gallery-slide-wrapper {
-  max-width: 100vw;
-}
-
 .logged-user-card {
   max-width: 120vw;
   padding: none;
@@ -13,14 +9,6 @@
   color: white;
 }
 
-.image-gallery-slide img {
-  max-width: 100%;
-}
-
-.image-gallery-slide .image-gallery-image {
-  width: 100%;
-  object-fit: none;
-}
 .container {
   max-width: 100vw;
   padding-right: 0;

@@ -1,49 +1,90 @@
-
 .titleLogin,
 .login {
-    padding-top: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
 }
 
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.Login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 10px 0 0 10px;
 }
 
-.form-group {
-    margin-bottom: 10px;
+form input:focus {
+    outline: none; 
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.login_label {
+    display: flex;
+    flex-direction: column;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 300px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
 }
 
-.submit-btn {
-    width: 100%;
+.login_btn1 {
+    width: 300px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #746644a6;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.submit-btn:hover {
-    background-color: #0056b3;
+.login_btn1:hover {
+    background-color: #e5eaf0;
 }
 
 .error {
     color: red;
     margin-top: 10px;
+}
+
+/* ------logout--------- */
+
+.container_logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  padding-left: 50px;
+}
+
+.textAndImg {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.faceImg_login {
+    width: 200px;
+}
+
+.btn_logout {
+  width: 25%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.logout_text1 {
+    font-size: 25px;
+}
+
+.Name_users {
+    font-size: 29px;
 }

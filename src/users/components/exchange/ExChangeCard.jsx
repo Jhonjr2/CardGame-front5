@@ -7,6 +7,7 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
 
   const [exChangeStatus, setExchangeStatus] = useState(exChange.is_available);
 
+
   const toggleExchangeStatus = () => {
     setExchangeStatus(!exChangeStatus);
   };
@@ -37,33 +38,32 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   };
 
   const diferenciaFormateada = formatoDiferencia(diferenciaEnMinutos);
-
-
+console.log(exChange)
   return (
     <div className='CardExchange'>
       <div className='info'>
-        {exChangeStatus == true ? (
-          <div className='info_CardExchange'>
-            <div>
-              <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>Alguien esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
-              <h2 className={`time_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
+        {
+          exChangeStatus == true ? (
+            <div className='info_CardExchange'>
+              <div>
+                <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name && exChange.last_name} esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
+                <h2 className={`time_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
+              </div>
+              <div className='containerCard'>
+                <ContainerCard card={card} countries={dataInfo?.countries} />
+              </div>
             </div>
-            <div className='containerCard'>
-              <ContainerCard card={card} countries={dataInfo?.countries} />
+          ) :
+            <div className='info_CardExchange'>
+              <div>
+                <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>{ } esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
+                <h2 className={`time_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
+              </div>
+              <div>
+                <img className='icon_reactive' src={img} alt="icon" onClick={toggleExchangeStatus} />
+              </div>
             </div>
-          </div>
-        ) :
-          <div className='info_CardExchange'>
-            <div>
-              <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>Alguien esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
-              <h2 className={`time_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
-            </div>
-            <div>
-              <img className='icon_reactive' src={img} alt="icon" onClick={toggleExchangeStatus} />
-            </div>
-          </div>
         }
-
       </div>
     </div>
   )

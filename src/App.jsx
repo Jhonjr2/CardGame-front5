@@ -8,6 +8,8 @@ import SearchCardPage from './users/components/cards/page/SearchCardPage'
 import DetalleExchange from './users/components/cards/page/DetalleExchange'
 import HomePage from './users/components/LoggedUserCard/HomePage'
 import { CardProvider } from './reduxStore/CardContext'
+import React from 'react';
+
 
 const App = () => {
 

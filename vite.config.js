@@ -1,7 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  server: {
+    proxy: {
+      '/dev': {
+        target: 'https://fnlclp5rqe.execute-api.us-east-1.amazonaws.com/dev',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/dev/, ''),
+      },
+    },
+  },
+});
