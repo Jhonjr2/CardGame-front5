@@ -18,7 +18,7 @@ const ExChangePage = () => {
                 {!dataSummary ? <FontAwesomeIcon icon={faSpinner} spin style={{ fontSize: '2em', color: 'black', marginLeft: '30px' }} />:
                 dataSummary?.exchanges && dataSummary.exchanges.map(e => (
                     <ExChangeCard
-                        key={e.id}
+                        key={e.user_aws_id}
                         exChange={e}
                         dataInfo={dataInfo}
                     />

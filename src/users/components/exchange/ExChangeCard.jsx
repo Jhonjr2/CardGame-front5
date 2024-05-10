@@ -13,7 +13,11 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   };
 
   const country = dataInfo?.countries.find(e => e.id === exChange.country_id)
-  const card = dataInfo?.cards.find(e => e.id == exChange.card_id)
+  const cardIds = exChange?.cards.map(e => e.id);
+  const cardsInExchange = dataInfo?.cards.filter(card => cardIds.includes(card.id));
+  const cardNames = cardsInExchange?.map(card => card.name).join(', ');
+  
+
 
   const timeExchange = new Date(exChange.datetime);
   const fechaActual = new Date();
@@ -38,7 +42,6 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   };
 
   const diferenciaFormateada = formatoDiferencia(diferenciaEnMinutos);
-console.log(exChange)
   return (
     <div className='CardExchange'>
       <div className='info'>
@@ -46,17 +49,16 @@ console.log(exChange)
           exChangeStatus == true ? (
             <div className='info_CardExchange'>
               <div>
-                <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name && exChange.last_name} esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
+                <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name ? exChange.first_name && exChange.last_name: 'Alguien'} <span>esta buscando la carta de</span> {cardNames}</h2>
                 <h2 className={`time_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
               </div>
               <div className='containerCard'>
-                <ContainerCard card={card} countries={dataInfo?.countries} />
               </div>
             </div>
           ) :
             <div className='info_CardExchange'>
               <div>
-                <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>{ } esta buscando la carta de <span>{card?.name}</span>  de <span>{country?.name}</span> </h2>
+                <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name ? exChange.first_name && exChange.last_name: 'Alguien'} esta buscando la carta de <span>{cardNames}</span> </h2>
                 <h2 className={`time_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
               </div>
               <div>

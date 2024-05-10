@@ -19,7 +19,7 @@ const NavBar = () => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModalog = () => {
     setIsModalOpen(false);
   };
 
@@ -37,7 +37,7 @@ const NavBar = () => {
           <Link to='/register' onClick={() => handleMenuItemClick('register')}>Sign up</Link>
         </li>
       </nav>
-      {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} />}
+      {isModalOpen && <Modal isOpen={isModalOpen} closeModalog={closeModalog} />}
     </div>
   );
 };

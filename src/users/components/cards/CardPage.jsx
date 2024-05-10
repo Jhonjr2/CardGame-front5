@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardSearch from './CardSearch'
 import image from '../../../assets/card.png'
 import './styles/CardPage.css'
 import ContainerSelectCards from './ContainerSelectCards'
 import { useCardContext } from '../../../reduxStore/CardContext'
+import Modal from '../../../auth/pages/Modal'
 
 const CardPage = () => {
 
@@ -24,8 +25,10 @@ const CardPage = () => {
     selectedCardsSearch, 
     setSelectedCardsSearch, 
     selectedCardsOffer, 
-    setSelectedCardsOffer 
+    setSelectedCardsOffer,
+    
   } = useCardContext();
+
 
   
   return (
@@ -66,7 +69,7 @@ const CardPage = () => {
           textStartexchange2={textStartexchange2}
           colorContainer3={colorContainer3}
           textColor={textColor}
-          redirectTo="/detalleExchange"
+          redirectTo={"/detalleExchange"}
         />
       </div>
     </div>

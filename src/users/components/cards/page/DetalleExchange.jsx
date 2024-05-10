@@ -10,6 +10,7 @@ const DetalleExchange = () => {
         setSelectedCardsOffer,
         selectedCardsSearch,
         selectedCardsOffer,
+        handleSubmitExchange
     } = useCardContext();
 
     const handleRemoveCard1 = (cardId) => {
@@ -45,6 +46,7 @@ const DetalleExchange = () => {
                     />
                 ))}
             </div>
+            <button onClick={handleSubmitExchange}>Enviar Intercambio</button>
         </div>
     );
 };

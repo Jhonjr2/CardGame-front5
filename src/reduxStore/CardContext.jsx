@@ -1,8 +1,12 @@
+import axios from 'axios';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
+  const baseUrl = '/dev';
+
+
   const [selectedCardsSearch, setSelectedCardsSearch] = useState(() => {
     const storedCards = localStorage.getItem('selectedCardsSearch');
     return storedCards ? JSON.parse(storedCards) : [];
@@ -22,39 +26,68 @@ export const CardProvider = ({ children }) => {
   }, [selectedCardsOffer]);
 
   const handleSubmitExchange = async () => {
-    const exchangeData = {
-      datetime: new Date().toISOString(),
-      user_aws_id: 'user_aws_id', 
-      offering_cards: selectedCardsOffer,
-      requesting_cards: selectedCardsSearch
-    };
+
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + currentDate.getDate()).slice(-2);
+    const hours = ('0' + currentDate.getHours()).slice(-2);
+    const minutes = ('0' + currentDate.getMinutes()).slice(-2);
+    const seconds = ('0' + currentDate.getSeconds()).slice(-2);
+
+    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+    const user_aws_id = localStorage.getItem('aws_id');
+    const offering_cards = localStorage.getItem("selectedCardsOffer");
+    const requesting_cards = localStorage.getItem("selectedCardsSearch");
+    const offeringCardsArray = JSON.parse(offering_cards);
+    const requestingCardsArray = JSON.parse(requesting_cards);
+    const token = localStorage.getItem('token');
+
+    console.log("Datos a enviar:");
+    console.log("Datetime:", formattedDate);
+    console.log("User AWS ID:", user_aws_id);
+    console.log("Offering Cards:", offeringCardsArray);
+    console.log("Requesting Cards:", requestingCardsArray);
+    console.log("Token:", token);
 
     try {
-      const response = await fetch('http://tuapi.com/user/send/exchange', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
+      const requestData = {
+        headers:{
+          token
         },
-        body: JSON.stringify(exchangeData)
-      });
-      
-      if (response.ok) {
-        console.log('Intercambio enviado exitosamente');
-      } else {
-        console.error('Error al enviar el intercambio');
-      }
+        body: {
+          datetime: formattedDate,
+          user_aws_id,
+          offering_cards: offeringCardsArray,
+          requesting_cards: requestingCardsArray
+        }
+      };
+
+      const options = {
+        method: 'POST',
+        url: 'https://fnlclp5rqe.execute-api.us-east-1.amazonaws.com/dev/user/send/exchange',
+        data: requestData
+
+      };
+      const res = await axios.request(options);
+      console.log(res.data);
+
     } catch (error) {
-      console.error('Error de red:', error);
+      console.log(error);
     }
+
   };
 
+
   return (
-    <CardContext.Provider value={{ 
-      selectedCardsSearch, 
-      setSelectedCardsSearch, 
-      selectedCardsOffer, 
-      setSelectedCardsOffer, 
-      handleSubmitExchange 
+    <CardContext.Provider value={{
+      selectedCardsSearch,
+      setSelectedCardsSearch,
+      selectedCardsOffer,
+      setSelectedCardsOffer,
+      handleSubmitExchange
+
     }}>
       {children}
     </CardContext.Provider>

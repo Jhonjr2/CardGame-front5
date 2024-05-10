@@ -6,7 +6,7 @@ import Login from './auth/pages/Login'
 import OfferingCardPage from './users/components/cards/page/OfferingCardPage'
 import SearchCardPage from './users/components/cards/page/SearchCardPage'
 import DetalleExchange from './users/components/cards/page/DetalleExchange'
-import HomePage from './users/components/LoggedUserCard/HomePage'
+import HomePage from './users/page/Home/HomePage'
 import { CardProvider } from './reduxStore/CardContext'
 import React from 'react';
 
@@ -24,7 +24,6 @@ const App = () => {
                     <Route path='/offeringCard' element={<OfferingCardPage />} />
                     <Route path='/searchCard' element={<SearchCardPage />} />
                     <Route path='/detalleExchange' element={<DetalleExchange />} />
-                    {/* <Route path='/sendExchange' element={<Login/>} /> */}
                 </Routes>
             </CardProvider>
         </div>

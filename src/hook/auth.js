@@ -20,7 +20,7 @@ const useAuth = () => {
         setUserData(userDataFromLocalStorage);
       }
 
-      const timer = setTimeout(checkTokenExpiration, 60000); 
+      const timer = setTimeout(checkTokenExpiration, 60000);
       return () => clearTimeout(timer);
     }
   }, [isAuthenticated]);
@@ -28,25 +28,24 @@ const useAuth = () => {
   const checkTokenExpiration = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      const { exp } = JSON.parse(atob(token.split('.')[1])); 
+      const { exp } = JSON.parse(atob(token.split('.')[1]));
       if (exp * 1000 < Date.now()) {
         logout();
       } else {
-        setTimeout(checkTokenExpiration, 10000); 
+        setTimeout(checkTokenExpiration, 10000);
       }
     }
   };
 
   const login = async (email, password) => {
     try {
-      console.log('URL de solicitud:', baseUrl);
       const options = {
-        method: 'POST', 
+        method: 'POST',
         url: baseUrl,
         data: { email, password },
         timeout: 10000
       };
-      
+
       const response = await axios.request(options);
       const data = response.data;
       if (response.status === 200) {
@@ -58,15 +57,18 @@ const useAuth = () => {
           lastName: last_name,
           email: email
         });
-        localStorage.setItem('userData', JSON.stringify({ 
-          firstName: first_name, 
-          lastName: last_name, 
-          email 
+        localStorage.setItem('userData', JSON.stringify({
+          firstName: first_name,
+          lastName: last_name,
+          email,
         }));
+        localStorage.setItem('aws_id', data.aws_id);
+        localStorage.setItem('username', data.username);
+
         return true;
       } else {
         if (response.status === 401) {
-          logout(); 
+          logout();
           throw new Error('La sesión ha expirado. Por favor, inicia sesión nuevamente.');
         } else {
           throw new Error(data.body || 'Error desconocido');
@@ -74,11 +76,11 @@ const useAuth = () => {
       }
     } catch (error) {
       throw new Error(error.message || 'Error desconocido');
-    }    
+    }
   };
-  
+
   const logout = () => {
-    navigate('/');
+    window.location.reload();
     setIsAuthenticated(false);
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
@@ -88,6 +90,7 @@ const useAuth = () => {
       email: ''
     });
   };
+
 
   return { isAuthenticated, userData, login, logout };
 };

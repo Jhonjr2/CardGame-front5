@@ -1,0 +1,10 @@
+.container_facebook {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_facebook {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
