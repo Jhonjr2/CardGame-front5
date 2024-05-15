@@ -89,6 +89,7 @@ const useAuth = () => {
       lastName: '',
       email: ''
     });
+    localStorage.clear();
   };
 
 

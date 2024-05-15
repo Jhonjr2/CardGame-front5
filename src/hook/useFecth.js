@@ -41,6 +41,7 @@ const useFetch = () => {
     }, [hasFetchedInfo]);
 
 
+    // Endpoint Exchange
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -65,13 +66,50 @@ const useFetch = () => {
         
     }, []);
 
+
+    // endpoint notification
+
+    const [dataNotification, setDataNotification] = useState(null)
+
+    useEffect(() => {
+      
+        const token = localStorage.getItem('token');
+        const id = localStorage.getItem('aws_id');
+
+        const notification = async() => {
+
     
+            try {
+                const options = {
+                    method: 'GET',
+                    url: `${baseUrl}/notifications?user_aws_id=${id}`,
+                    headers: {
+                        'token': token
+                    }
+                }
+    
+                const res = await axios.request(options)
+                setDataNotification(res.data)
+                console.log(res.data)
+    
+            } catch{
+                console.log(error)
+    
+            }
+    
+        }
+        notification();
+        
+    }, [])
+    
+   
 
 
     return {
         dataInfo,
         dataSummary,
-        infoFilted
+        infoFilted,
+        dataNotification
     };
 
 };

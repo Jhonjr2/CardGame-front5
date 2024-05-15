@@ -25,6 +25,8 @@ export const CardProvider = ({ children }) => {
     localStorage.setItem('selectedCardsOffer', JSON.stringify(selectedCardsOffer));
   }, [selectedCardsOffer]);
 
+  // send exchange
+
   const handleSubmitExchange = async () => {
 
     const currentDate = new Date();
@@ -44,16 +46,9 @@ export const CardProvider = ({ children }) => {
     const requestingCardsArray = JSON.parse(requesting_cards);
     const token = localStorage.getItem('token');
 
-    console.log("Datos a enviar:");
-    console.log("Datetime:", formattedDate);
-    console.log("User AWS ID:", user_aws_id);
-    console.log("Offering Cards:", offeringCardsArray);
-    console.log("Requesting Cards:", requestingCardsArray);
-    console.log("Token:", token);
-
     try {
       const requestData = {
-        headers:{
+        headers: {
           token
         },
         body: {
@@ -79,6 +74,36 @@ export const CardProvider = ({ children }) => {
 
   };
 
+  // Endpoint User
+
+  const [userExchange, setUserExchange] = useState(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const id = localStorage.getItem('aws_id');
+
+    const user = async () => {
+      try {
+        const options = {
+          method: 'GET',
+          url: `${baseUrl}/user?id=${id}`,
+          headers: {
+            'token': token
+          }
+
+        };
+        const res = await axios.request(options);
+        setUserExchange(res.data)
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    user();
+  }, []);
+
+
 
   return (
     <CardContext.Provider value={{
@@ -86,7 +111,8 @@ export const CardProvider = ({ children }) => {
       setSelectedCardsSearch,
       selectedCardsOffer,
       setSelectedCardsOffer,
-      handleSubmitExchange
+      handleSubmitExchange,
+      userExchange
 
     }}>
       {children}

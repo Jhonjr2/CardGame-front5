@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './styles/cardExchange.css'
 import ContainerCard from '../cards/ContainerCard'
 import img from '../img/reactivar_icon.png'
+import { useNavigate } from 'react-router-dom'
 
 const ExChangeCard = ({ exChange, dataInfo }) => {
 
   const [exChangeStatus, setExchangeStatus] = useState(exChange.is_available);
-
+  const navigate = useNavigate()
 
   const toggleExchangeStatus = () => {
     setExchangeStatus(!exChangeStatus);
@@ -17,8 +18,6 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   const cardsInExchange = dataInfo?.cards.filter(card => cardIds.includes(card.id));
   const cardNames = cardsInExchange?.map(card => card.name).join(', ');
   
-
-
   const timeExchange = new Date(exChange.datetime);
   const fechaActual = new Date();
   const diferencia = fechaActual - timeExchange;
@@ -42,8 +41,16 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   };
 
   const diferenciaFormateada = formatoDiferencia(diferenciaEnMinutos);
+
+  
+
+  const navigateToExchangeDetail = () => {
+    navigate('/detailExchange', { state: { exchange: exChange, cardNames: cardNames } });
+  };
+  
+
   return (
-    <div className='CardExchange'>
+    <div className='CardExchange' onClick={navigateToExchangeDetail}>
       <div className='info'>
         {
           exChangeStatus == true ? (

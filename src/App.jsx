@@ -9,6 +9,7 @@ import DetalleExchange from './users/components/cards/page/DetalleExchange'
 import HomePage from './users/page/Home/HomePage'
 import { CardProvider } from './reduxStore/CardContext'
 import React from 'react';
+import DetailExchange from './users/components/exchange/DetailExchange'
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path='/offeringCard' element={<OfferingCardPage />} />
                     <Route path='/searchCard' element={<SearchCardPage />} />
                     <Route path='/detalleExchange' element={<DetalleExchange />} />
+                    <Route path='/detailExchange' element={<DetailExchange />} />
                 </Routes>
             </CardProvider>
         </div>

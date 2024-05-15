@@ -6,6 +6,7 @@ import ExChangePage from '../../components/exchange/ExChangePage';
 import CardPage from '../../components/cards/CardPage';
 import React from 'react';
 import Slider from '../../components/slider/Slider';
+import Notifications from '../../components/notification/Notifications';
 
 
 
@@ -65,6 +66,7 @@ const HomePage = () => {
                     <CardPage />
                     <ExChangePage />
                 </div>
+                <Notifications/>
             </div>
         </Suspense>
     )

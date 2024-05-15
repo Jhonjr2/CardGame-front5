@@ -24,7 +24,7 @@ const ExChangePage = () => {
                     />
                 ))}
             </div>
-            <Notifications />
+            {/* <Notifications /> */}
         </div>
     );
 };
