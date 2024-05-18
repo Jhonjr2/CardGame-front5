@@ -8,20 +8,19 @@
 
 .info_CardExchange {
     display: flex;
-    align-items: center;
-    gap: 4em;
+    gap: 1em;
 }
 
 .time_CardExchange {
     font-size: 17px;
-    color: rgba(2, 2, 2, 0.639);
+    color: rgba(49, 115, 173, 0.876);
     text-transform: capitalize;
 }
 
 .text_CardExchange {
     font-size: 18px;
     text-transform: capitalize;
-    max-width: 500px;
+    max-width: 90%;
 }
 
 .habilitado {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './styles/cardExchange.css'
-import ContainerCard from '../cards/ContainerCard'
 import img from '../img/reactivar_icon.png'
 import { useNavigate } from 'react-router-dom'
+import Avatar from '../avatar/Avatar'
 
 const ExChangeCard = ({ exChange, dataInfo }) => {
 
@@ -17,7 +17,7 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
   const cardIds = exChange?.cards.map(e => e.id);
   const cardsInExchange = dataInfo?.cards.filter(card => cardIds.includes(card.id));
   const cardNames = cardsInExchange?.map(card => card.name).join(', ');
-  
+
   const timeExchange = new Date(exChange.datetime);
   const fechaActual = new Date();
   const diferencia = fechaActual - timeExchange;
@@ -42,12 +42,25 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
 
   const diferenciaFormateada = formatoDiferencia(diferenciaEnMinutos);
 
-  
+
 
   const navigateToExchangeDetail = () => {
     navigate('/detailExchange', { state: { exchange: exChange, cardNames: cardNames } });
   };
-  
+
+  let firstThreeCards = '';
+  if (cardNames && cardNames.length > 0) {
+    const cardsArray = cardNames.split(', ');
+    const firstThree = cardsArray.slice(0, 3);
+    firstThreeCards = firstThree.join(', ');
+    if (cardsArray.length > 3) {
+      firstThreeCards += `, y otras ${cardsArray.length - 3}`;
+    }
+  }
+
+  const width = '65px'
+  const height = '65px'
+  const fontSize = '22px'
 
   return (
     <div className='CardExchange' onClick={navigateToExchangeDetail}>
@@ -55,9 +68,20 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
         {
           exChangeStatus == true ? (
             <div className='info_CardExchange'>
+              <Avatar
+                firstName={exChange.first_name ? exChange.first_name: 'N'}
+                lastName={exChange.last_name ? exChange.last_name: 'N'}
+                width={width}
+                height={height}
+                fontSize={fontSize}
+              />
               <div>
-                <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name ? exChange.first_name && exChange.last_name: 'Alguien'} <span>esta buscando la carta de</span> {cardNames}</h2>
-                <h2 className={`time_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
+                <h2 className={`text_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>
+                  {exChange.first_name ? (exChange.first_name || exChange.last_name) : 'Alguien'} <span>esta buscando la carta de</span> {firstThreeCards}
+                </h2>
+                <h2 className={`time_CardExchange ${exChangeStatus == true ? 'habilitado' : 'inhabilitado'}`}>
+                  {diferenciaFormateada}
+                </h2>
               </div>
               <div className='containerCard'>
               </div>
@@ -65,8 +89,12 @@ const ExChangeCard = ({ exChange, dataInfo }) => {
           ) :
             <div className='info_CardExchange'>
               <div>
-                <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>{exChange.first_name ? exChange.first_name && exChange.last_name: 'Alguien'} esta buscando la carta de <span>{cardNames}</span> </h2>
-                <h2 className={`time_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}> {diferenciaFormateada} </h2>
+                <h2 className={`text_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>
+                  {exChange.first_name ? exChange.first_name || exChange.last_name : 'Alguien'} esta buscando la carta de <span>{firstThreeCards}</span>
+                </h2>
+                <h2 className={`time_CardExchange ${exChangeStatus ? 'habilitado' : 'inhabilitado'}`}>
+                  {diferenciaFormateada}
+                </h2>
               </div>
               <div>
                 <img className='icon_reactive' src={img} alt="icon" onClick={toggleExchangeStatus} />

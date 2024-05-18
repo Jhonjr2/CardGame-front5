@@ -8,7 +8,7 @@ const useFetch = () => {
 
     const [dataInfo, setDataInfo] = useState();
     const [infoFilted, setInfoFilted] = useState([]);
-    const [dataSummary, setDataSummary] = useState(null);
+    const [dataSummary, setDataSummary] = useState({ exchanges: [] });
     const [hasFetchedInfo, setHasFetchedInfo] = useState(false);
 
     useEffect(() => {
@@ -71,38 +71,45 @@ const useFetch = () => {
 
     const [dataNotification, setDataNotification] = useState(null)
 
-    useEffect(() => {
-      
+    const notification = async () => {
         const token = localStorage.getItem('token');
         const id = localStorage.getItem('aws_id');
 
-        const notification = async() => {
-
-    
-            try {
+        try {
+            if (token && id) {
                 const options = {
                     method: 'GET',
                     url: `${baseUrl}/notifications?user_aws_id=${id}`,
                     headers: {
                         'token': token
                     }
-                }
-    
-                const res = await axios.request(options)
-                setDataNotification(res.data)
-                console.log(res.data)
-    
-            } catch{
-                console.log(error)
-    
+                };
+                const response = await axios.request(options);
+                const data = response.data;
+                setDataNotification(data);
+                localStorage.setItem('cachedNotifications', JSON.stringify(data));
+            } else {
+                    setDataNotification('No hay notificaciones');
             }
-    
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-        notification();
-        
-    }, [])
-    
-   
+    };
+
+    useEffect(() => {
+        const cachedData = JSON.parse(localStorage.getItem('cachedNotifications'));
+        if (cachedData) {
+            setDataNotification(cachedData);
+        } else {
+            notification(); 
+        }
+
+        const intervalId = setInterval(() => {
+            notification(); 
+        }, 30000); 
+
+        return () => clearInterval(intervalId); 
+    }, []);
 
 
     return {

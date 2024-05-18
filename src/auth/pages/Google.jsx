@@ -14,9 +14,11 @@ const Google = ({ isLoggedInFacebook, setIsLoggedInFacebook }) => {
         window.location.reload();
     }
 
-    if (isLoggedInFacebook || localStorage.getItem('token')) {
-        return navigate('/')
-    }
+    useEffect(() => {
+        if (isLoggedInFacebook || localStorage.getItem('token')) {
+            navigate('/');
+        }
+    }, [isLoggedInFacebook]);
 
     return (
         <div className='container_google'>

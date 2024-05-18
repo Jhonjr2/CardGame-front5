@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Login from './Login';
 import './style/Modal.css';
 
-const Modal = ({ isOpen, closeModalog }) => {
+const Modal = ({ isOpen, closeModalog, content }) => {
 
   const stopPropagation = (e) => {
     e.stopPropagation();
@@ -13,7 +12,7 @@ const Modal = ({ isOpen, closeModalog }) => {
       {isOpen && (
         <div className="modal_containerLogin" onClick={closeModalog}>
           <div className="modal_contentLogin" onClick={stopPropagation}>
-            <Login />
+            {content}
           </div>
         </div>
       )}

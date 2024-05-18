@@ -66,7 +66,6 @@ const HomePage = () => {
                     <CardPage />
                     <ExChangePage />
                 </div>
-                <Notifications/>
             </div>
         </Suspense>
     )

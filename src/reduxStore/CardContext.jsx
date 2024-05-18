@@ -82,25 +82,30 @@ export const CardProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     const id = localStorage.getItem('aws_id');
 
-    const user = async () => {
-      try {
-        const options = {
-          method: 'GET',
-          url: `${baseUrl}/user?id=${id}`,
-          headers: {
-            'token': token
-          }
+    if (token && id) {
+      const user = async () => {
+        try {
+          const options = {
+            method: 'GET',
+            url: `${baseUrl}/user?id=${id}`,
+            headers: {
+              'token': token
+            }
 
-        };
-        const res = await axios.request(options);
-        setUserExchange(res.data)
+          };
+          const res = await axios.request(options);
+          setUserExchange(res.data)
 
-      } catch (error) {
-        console.log(error);
+        } catch (error) {
+          console.log(error);
+        }
       }
+
+      user();
+    } else {
+      setUserExchange('No hay token o id en el localStorage');
     }
 
-    user();
   }, []);
 
 

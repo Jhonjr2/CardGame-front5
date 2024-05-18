@@ -35,21 +35,16 @@ const Login = () => {
       setErrors({});
       setIsLoading(true);
       try {
-        const success = await login(form.email, form.password);
-        if (success) {
-          navigate('/');
-          window.location.reload();
-        } else {
-          setErrorMsg('Credenciales inválidas.');
-        }
+        await login(form.email, form.password);
+        navigate('/');
+        window.location.reload();
       } catch (error) {
-        setErrorMsg('Error desconocido.');
-      } finally {
+        setErrorMsg(error.message);
         setIsLoading(false);
       }
     }
   };
-
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

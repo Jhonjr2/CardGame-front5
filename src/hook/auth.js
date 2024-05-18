@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const useAuth = () => {
   const baseUrl = 'https://fnlclp5rqe.execute-api.us-east-1.amazonaws.com/dev/users/login';
 
-  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
   const [userData, setUserData] = useState({
     firstName: '',
@@ -38,46 +36,40 @@ const useAuth = () => {
   };
 
   const login = async (email, password) => {
-    try {
-      const options = {
-        method: 'POST',
-        url: baseUrl,
-        data: { email, password },
-        timeout: 10000
-      };
 
-      const response = await axios.request(options);
-      const data = response.data;
-      if (response.status === 200) {
-        setIsAuthenticated(true);
-        localStorage.setItem('token', data.token);
-        const { first_name, last_name, email } = data;
-        setUserData({
-          firstName: first_name,
-          lastName: last_name,
-          email: email
-        });
-        localStorage.setItem('userData', JSON.stringify({
-          firstName: first_name,
-          lastName: last_name,
-          email,
-        }));
-        localStorage.setItem('aws_id', data.aws_id);
-        localStorage.setItem('username', data.username);
+    const options = {
+      method: 'POST',
+      url: baseUrl,
+      data: { email, password },
+      timeout: 10000,
+    };
 
-        return true;
-      } else {
-        if (response.status === 401) {
-          logout();
-          throw new Error('La sesión ha expirado. Por favor, inicia sesión nuevamente.');
-        } else {
-          throw new Error(data.body || 'Error desconocido');
-        }
-      }
-    } catch (error) {
-      throw new Error(error.message || 'Error desconocido');
+    const response = await axios.request(options);
+    const data = response.data;
+
+    if (response.status === 200 && data.token) {
+      setIsAuthenticated(true);
+      localStorage.setItem('token', data.token);
+      const { first_name, last_name, email } = data;
+      setUserData({
+        firstName: first_name,
+        lastName: last_name,
+        email: email,
+      });
+      localStorage.setItem('userData', JSON.stringify({
+        firstName: first_name,
+        lastName: last_name,
+        email,
+      }));
+      localStorage.setItem('aws_id', data.aws_id);
+      localStorage.setItem('username', data.username);
+    } else {
+      throw new Error('Credenciales inválidas.');
     }
+
   };
+
+
 
   const logout = () => {
     window.location.reload();

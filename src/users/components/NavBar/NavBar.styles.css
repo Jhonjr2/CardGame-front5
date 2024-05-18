@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  background-color: rgba(39, 15, 15, 0.807);
+  background-color: rgb(81, 64, 64);
   position: fixed;
   min-width: 100%;
   z-index: 889;
-  
+
 }
 
 .header nav {
@@ -61,10 +61,10 @@
 .header_menu li a::after {
   content: '';
   position: absolute;
-  bottom: -3px; 
+  bottom: -3px;
   left: 0;
   width: 0;
-  height: 2px; 
+  height: 2px;
   background-color: var(--Color-text-secudary);
   transition: width 0.3s ease, background-color 0.3s ease;
 }
@@ -73,21 +73,50 @@
 .header_menu li a:focus::after,
 .header_menu li a.active::after {
   width: 100%;
-  background-color: var(--Color-text-secudary); 
+  background-color: var(--Color-text-secudary);
   color: var(--Color-text-secudary);
 }
 
 .header_menu li.active a {
-  color: var(--Color-text-secudary); 
+  color: var(--Color-text-secudary);
 }
 
 .header_menu li.active a::after {
   width: 100%;
-  background-color: var(--Color-text-secudary); 
+  background-color: var(--Color-text-secudary);
 }
 
 .header_login .btnModal {
   background-color: transparent;
   color: white;
   border: none;
+}
+
+.notification_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_notification {
+  padding: 6px 8px;
+  background-color: rgba(255, 255, 255, 0.467);
+  color: white;
+  border: none;
+  border-radius: 50%;
+}
+
+.countNotification {
+  color: rgb(249, 246, 246);
+  font-weight: 800;
+  font-size: 12px;
+  position: relative;
+  top: 20px;
+  right: 12px;
+  border-radius: 50%;
+  background-color: rgb(255, 25, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
 }
